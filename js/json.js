@@ -1,11 +1,11 @@
 
-$.getJSON("https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/1/public/basic?alt=json" , function(data) {
+$.getJSON("https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/od6/public/values?alt=json" , function(data) {
   
   console.log(data.feed.entry.length); 
 
   for (var person in data.feed.entry) {
     var name = data.feed.entry[person].title.$t;
-    var total_points = data.feed.entry[person].content.$t; 
+    var total_points = data.feed.entry[person].gsx$total.$t; 
     console.log(name);
     console.log(total_points);
     //Names
@@ -16,12 +16,15 @@ $.getJSON("https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vq
     element.appendChild(para);
     // Points
     var para = document.createElement("h3");
-    var node = document.createTextNode(total_points);
+    var node = document.createTextNode('Total Points ' + total_points);
     para.appendChild(node);
     var element = document.getElementById("kcpoints");
     element.appendChild(para);
   }
 })
+// Via Json or Google sheets api v4
+//"content":{"type":"text","$t":"event1: 2, event2: 1, event3: 6, total: 9"}
+//https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/od6/public/values?alt=json
 /*
 function loop2(){
   for (var person in data.feed.entry){
