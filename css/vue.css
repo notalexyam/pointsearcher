@@ -1,0 +1,75 @@
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal; }
+
+ul {
+  list-style: none; }
+
+button, input, select, textarea {
+  margin: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+img, embed, iframe, object, audio, video {
+  height: auto;
+  max-width: 100%; }
+
+iframe {
+  border: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td, th {
+  padding: 0;
+  text-align: left; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #444; }
+
+.container {
+  margin: 40px auto;
+  padding: 0 10px;
+  padding-top: 20px;
+  max-width: 1000px; }
+
+h1, h2, h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: normal; }
+
+h1 {
+  font-size: 40px; }
+
+h2 {
+  font-size: 30px;
+  color: red; }
+
+h3 {
+  font-size: 20px;
+  color: blue; }
+
+p {
+  padding-top: 10px;
+  font-size: 16px; }
+
+.sheetwrapper {
+  padding-top: 100px; }
+
+img {
+  padding: 25px 0px;
+  min-width: 50%; }
+
+/*# sourceMappingURL=vue.css.map */
