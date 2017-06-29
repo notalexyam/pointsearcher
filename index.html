@@ -6,31 +6,71 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/vue.css" rel="stylesheet">
         <link rel="icon" href="zzz.png">
-        <script src="https://unpkg.com/vue"></script>
+        
+        
     </head>
     <body>
-        <div class="container">
-        <div id="app">
-            <h1>{{ message }}<h1>
-        </div>
-        <script>
-        new Vue({
-            el:'#app',
-            data:{
-                'message':'lookUpUrPoints'
-            }
-        })
-        </script>
-        <div id="kcpoints">
-        </div>
-        <div class="sheetwrapper">
-        <iframe height="500px" width="85%" src="https://docs.google.com/spreadsheets/d/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/pubhtml?widget=true&amp;headers=false"></iframe>   
-        </div>
-        <img src="closeenough.jpg">
-        <h2> close enuf </h2>
+        <div class="container"> 
+            <h1>Look Up Ur Points</h1>
+    
+            <form id="lookup" v-cloak>
         
+                <div class="bar">
+                    <input type="text" placeholder="PutUrName" v-model="searchString" /> 
+                </div>
+
+                <ul>
+
+                 <li v-for="members in filteredMembers">
+                        <p>{{members.gsx$name.$t}}</p>
+                        <p>{{members.gsx$total.$t}}</p>
+                    </li>
+                </ul>
+
+            </form>
+
+            <div class="sheetwrapper">
+                <iframe height="500px" width="85%" src="https://docs.google.com/spreadsheets/d/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/pubhtml?widget=true&amp;headers=false"></iframe>   
+            </div>
+
+            <img src="closeenough.jpg">
+            <h2> close enuf </h2>
+
+             
+            <!--<form id="main" v-cloak>
+
+                <div class="bar">
+                    <!-- Create a binding between the searchString model and the text field -->
+
+                    <!--<input type="text" placeholder="Enter your search terms" v-model="searchString" />
+                
+                </div>
+
+                <ul>
+                    <!-- Render a li element for every entry in the computed filteredArticles array. -->
+
+                <!--<li v-for="article in filteredArticles">
+                        <a v-bind:href="article.url"><img v-bind:src="article.image" /></a>
+                        <p>{{article.title}}</p>
+                    </li>
+                </ul>
+
+            </form>
+             <!--
+            <div id="app-2">
+                <span v-bind:title="message">
+                    Hover your mouse over me for a few seconds
+                    to see my dynamically bound title!
+                </span>
+            </div> -->
+            <!-- <div id="app3">
+                <h2 v-for="(members,index) in jsonMembers">{{members.gsx$name.$t}}</h2>
+            </div> -->
+
         </div>
+        <script src="https://unpkg.com/vue"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/search.js"></script>
         <script src="js/json.js"></script>
     </body>
 </html>

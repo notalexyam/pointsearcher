@@ -1,4 +1,4 @@
-
+/*/ Javascript edition 
 $.getJSON("https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/od6/public/values?alt=json" , function(data) {
   
   console.log(data.feed.entry.length); 
@@ -15,13 +15,37 @@ $.getJSON("https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vq
     var element = document.getElementById("kcpoints");
     element.appendChild(para);
     // Points
-    var para = document.createElement("h3");
+    var subheading = document.createElement("h3");
     var node = document.createTextNode('Total Points ' + total_points);
-    para.appendChild(node);
+    subheading.appendChild(node);
     var element = document.getElementById("kcpoints");
-    element.appendChild(para);
+    element.appendChild(subheading);
   }
+}) */
+
+
+// Jquery Edition
+$.getJSON("https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/od6/public/values?alt=json", function(data) {
+
+  var entry = data.feed.entry;
+  console.log(entry)
+  $(entry).each(function(){
+    console.log(this)
+    // Names
+    $('.kcpoints').append('<h2> Total points' + this.gsx$name.$t + '<h2>');
+    // Points
+    $('.kcpoints').append('<h3> Total points' + this.gsx$total.$t + '<h3>');
+  })
 })
+
+
+
+//var spreadsheetID="1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o";
+//var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+
+
+
+ 
 // Via Json or Google sheets api v4
 //"content":{"type":"text","$t":"event1: 2, event2: 1, event3: 6, total: 9"}
 //https://spreadsheets.google.com/feeds/list/1g_uZ3Yzsx_jeavSOs9Mo4Y5Vqg2tWLT_48H31oQJK4o/od6/public/values?alt=json
