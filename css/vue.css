@@ -67,6 +67,8 @@ p {
 
 .sheetwrapper {
   padding-top: 100px; }
+  .sheetwrapper iframe {
+    height: 250px; }
 
 img {
   padding: 25px 0px;
